@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>fop2020</groupId>
+    <artifactId>h08-archetype</artifactId>
+    <version>1.1.0</version>
+    <packaging>maven-archetype</packaging>
+
+    <name>Achte Hausübung – Machine Learning (Vorlage)</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.archetype</groupId>
+                <artifactId>archetype-packaging</artifactId>
+                <version>3.2.0</version>
+            </extension>
+        </extensions>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-archetype-plugin</artifactId>
+                    <version>3.2.0</version>
+                    <configuration>
+                        <ignoreEOLStyle>true</ignoreEOLStyle>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.2.0</version>
+                    <executions>
+                        <execution>
+                            <id>default-resources</id>
+                            <goals>
+                                <goal>resources</goal>
+                            </goals>
+                            <configuration>
+                                <escapeString>\</escapeString>
+                                <resources>
+                                    <resource>
+                                        <directory>src/main/resources</directory>
+                                        <filtering>true</filtering>
+                                        <includes>
+                                            <include>archetype-resources/pom.xml</include>
+                                            <include>META-INF/maven/archetype-metadata.xml</include>
+                                        </includes>
+                                    </resource>
+                                    <resource>
+                                        <directory>src/main/resources</directory>
+                                        <filtering>false</filtering>
+                                        <excludes>
+                                            <exclude>archetype-resources/pom.xml</exclude>
+                                            <exclude>META-INF/maven/archetype-metadata.xml</exclude>
+                                        </excludes>
+                                    </resource>
+                                </resources>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>default-testResources</id>
+                            <goals>
+                                <goal>testResources</goal>
+                            </goals>
+                            <configuration>
+                                <resources>
+                                    <resource>
+                                        <directory>src/test/resources</directory>
+                                        <filtering>true</filtering>
+                                        <includes>
+                                            <include>projects/*/reference/pom.xml</include>
+                                        </includes>
+                                    </resource>
+                                    <resource>
+                                        <directory>src/test/resources</directory>
+                                        <filtering>false</filtering>
+                                        <excludes>
+                                            <exclude>projects/*/reference/pom.xml</exclude>
+                                        </excludes>
+                                    </resource>
+                                </resources>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/kimberninger/h08-archetype</url>
+        </repository>
+    </distributionManagement>
+</project>
